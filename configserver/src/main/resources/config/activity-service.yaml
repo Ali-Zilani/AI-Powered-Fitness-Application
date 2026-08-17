@@ -1,0 +1,57 @@
+spring:
+  mongodb:
+    uri: mongodb+srv://ali_zilani:v5Ar2XKPQKFDzLFI@cluster0.iyprdbg.mongodb.net/activitydb?appName=Cluster0
+  kafka:
+    admin:
+      auto-create: true
+    bootstrap-servers: kafka-3ceea03f-student-c7ce.d.aivencloud.com:10758
+    properties:
+      security.protocol: SASL_SSL
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="avnadmin" password="AVNS_Kyu4zRX4y7WnbyT5Mro";
+      ssl.truststore.type: PEM
+      ssl.truststore.certificates: |
+        -----BEGIN CERTIFICATE-----
+        MIIERDCCAqygAwIBAgIUH1qNrwqd00Y/efFQldXvHHDNkxUwDQYJKoZIhvcNAQEM
+        BQAwOjE4MDYGA1UEAwwvNjY4MmQ3OTYtODExMy00NGQ0LWE1ZGMtNTEwYmU4MjM1
+        Y2EyIFByb2plY3QgQ0EwHhcNMjYwNzMwMTMwMjI0WhcNMzYwNzI3MTMwMjI0WjA6
+        MTgwNgYDVQQDDC82NjgyZDc5Ni04MTEzLTQ0ZDQtYTVkYy01MTBiZTgyMzVjYTIg
+        UHJvamVjdCBDQTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBALAnLmly
+        XMbaMChiyCenL4Ee/CT3Y92Tj9I7boGhGerYxBFgxSWDdLBuAPS5d0kUvcP6lRQz
+        H3gvGNMSFJ053ruL2N2RyL62Qxs9elVdT2ggkr6canBc6udpvzw9We3H1Zsw2j7i
+        40UA1YeN6SRYPxY9oqWGznekLw08z2tC3xd7Hsrt5EA+0mJrwcYIhVwJRC48UnRs
+        AKyFnXFxR9hP/ncbZb+pgZ8mAohgrDyH6bQf4Dx8aHI659FxOWEOASPGQMByajGf
+        VhRxnAN8f1bO4Y0vAYoKfO1CDg/pt2XG1Iyh99D5mNcNBmTLYqkxtQgWCyZe0bRh
+        BiFLQMAKJWTCDbkBt5xOtfrKj+siFr2ZlZr8DvI9FRcn+8pqajGdyqL3Yy8M1vn3
+        ZMJDt1f5vicFT1e7mQr90pLcF9HYllb/Tx1FS08NzAcrVFtwR2aorptI0KoaCalQ
+        o/w0BYeh8x0p1OF8AS8s1U5sXir9GGmHnwBpj8Y+s9HOFcY2EBYgDjy2/QIDAQAB
+        o0IwQDAdBgNVHQ4EFgQU4KUug6ydp9t+HCgnH7Vf44Jl0aUwEgYDVR0TAQH/BAgw
+        BgEB/wIBADALBgNVHQ8EBAMCAQYwDQYJKoZIhvcNAQEMBQADggGBAH9IEnNgR10f
+        4Y4V20e5nZQJ0xmeFjQyuOhhHAf5ImTGvkSbr5KiCARqJ9Uj+jk+E9RE/mkaFfSv
+        1FJo2adB6gZt36DYTRz972ld8+AE3huw0xwURoSD3Zy6OJZaaZ0VYuRhuX5mvqun
+        gaMa6S6GADoxg3C4ACMclH0q0urnM2EDx7voTdsl38Uyl9+GbmjGFWXw/pSPih/M
+        +EEJkEFSRNJ05DVyfDThcsKkJAfPLo820fW2EEQnAUaEa0T59VG8wRAIG5bxIpd4
+        TMvgk3kVdO1fh81frkx3IrMR3WfIDGqQSwn46CEXnipjGG64UxhLeH6OVQfy8bIA
+        ovIXdfb0xJQUkaMGan0DIigGG/a5b750A2WZqNF08Ms+qtMHJ0n3QTE2+IFdO1yj
+        zKqrrxwN2rsLm0rJ0Gi9wXAU/+JTQjRDVYIuTHlcqWzlZI8VUY3xv9albwjAs4B2
+        e36GPzDiIZcH3h3nj2GdHEb+wa1udgpWeEaVJwv3rR9OuzoPIMW0Rg==
+        -----END CERTIFICATE-----
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+kafka:
+  topic:
+    name: activity-events
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: false
+    ip-address: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8082
